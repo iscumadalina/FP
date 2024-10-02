@@ -5,6 +5,7 @@ FP seminar 1 problems & solutions
 """
 Problem statements to choose from:
     https://www.codecademy.com/resources/blog/python-code-challenges-for-beginners/
+    https://www.freecodecamp.org/news/python-coding-challenges-for-beginners/
 """
 
 """
@@ -51,4 +52,8 @@ same place in both strings.
 """
 7. Return the sum of the numbers in a list, returning 0 for an empty list. Except the number 13 is very
 unlucky, so it does not count and numbers that come immediately after a 13 also do not count.
+"""
+
+"""
+8. Caesar Encryption
 """
