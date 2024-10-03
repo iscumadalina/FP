@@ -75,8 +75,8 @@ def fizz_buzz(left: int, right: int) -> list:
     return result
 
 
-values = fizz_buzz(1, 50)
-print(values)
+# values = fizz_buzz(1, 50)
+# print(values)
 
 """
 3. Calculate the first n terms of the Fibonacci sequence
@@ -94,6 +94,25 @@ print(values)
     string_splosion('abc') → 'aababc'
     string_splosion('ab') → 'aab'
 """
+
+
+def string_splosion(s: str) -> str:
+    result = ""
+
+    for index in range(1, len(s) + 1):
+        result += s[0:index]  # str is a sequence type and immutable
+        # += operator creates a new str each time
+
+        print(type(result))  # type() is a builtin function
+        print(id(result))  # id() provides the unique id of a variable
+
+    return result
+
+
+print(string_splosion('Code'))
+
+# s = 'Code'  # str is a seuqence type
+# print(s[1:3])
 
 """
 5. Given 2 strings, a and b, return the number of the positions where they contain the same length 2
