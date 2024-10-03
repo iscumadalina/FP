@@ -3,6 +3,31 @@ FP seminar 1 problems & solutions
 """
 
 """
+What you will need:
+    1. An installation of Python 3              (the Python interpreter)
+    2. The PyCharm IDE (Community or Ultimate)  (the development environment, debug, code suggestion, auto-complete, running tests, code coverage)
+    3. A GitHub account                         (accept and work on the lab assignments, use as a portofolio)
+"""
+print("Hello World!")  # print is a builtin function
+
+# int a = 1024;
+# a = "abcd" -> compile error
+
+"""
+    C/C++ are statically typed -> the exact type of each variable is set and known at compile time
+    Python is dynamically typed -> the exact type of each variable is known only at runtime
+    
+    In Python:
+    a = 1234
+        
+        1. The type of variable a is transferred from the type of 1234 (int)
+        2. The value  of variable a is transferred from the type of 1234 (int)
+"""
+
+a = 1024  # a is a variable of type int holding the value 1024
+a = "abcd"  # the type of a now becomes str and its value is "abcd"
+
+"""
 Problem statements to choose from:
     https://www.codecademy.com/resources/blog/python-code-challenges-for-beginners/
     https://www.freecodecamp.org/news/python-coding-challenges-for-beginners/
