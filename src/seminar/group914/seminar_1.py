@@ -1,5 +1,17 @@
 """
 FP seminar 1 problems & solutions
+
+How to set up things!
+    1. An installation of Python 3
+    2. An IDE --> PyCharm
+    3. A GitHub account -- needed to accept assignments
+"""
+
+print("Hello World!")
+"""
+Process finished with exit code 0
+    - you need to see this to make sure the program has stopped :)
+    - exit code 0 means no errors 
 """
 
 """
