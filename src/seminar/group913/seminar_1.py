@@ -8,7 +8,7 @@ What you will need:
     2. The PyCharm IDE (Community or Ultimate)  (the development environment, debug, code suggestion, auto-complete, running tests, code coverage)
     3. A GitHub account                         (accept and work on the lab assignments, use as a portofolio)
 """
-print("Hello World!")  # print is a builtin function
+# print("Hello World!")  # print is a builtin function
 
 # int a = 1024;
 # a = "abcd" -> compile error
@@ -24,8 +24,8 @@ print("Hello World!")  # print is a builtin function
         2. The value  of variable a is transferred from the type of 1234 (int)
 """
 
-a = 1024  # a is a variable of type int holding the value 1024
-a = "abcd"  # the type of a now becomes str and its value is "abcd"
+# a = 1024  # a is a variable of type int holding the value 1024
+# a = "abcd"  # the type of a now becomes str and its value is "abcd"
 
 """
 Problem statements to choose from:
@@ -37,6 +37,20 @@ Problem statements to choose from:
 1. Given 2 ints, a and b, return True if one of them is 10 or if their sum is 10
 Question – What happens if we enter a non-integer number, or alphanumeric characters?
 """
+
+
+def is_ten(a: int, b: int) -> bool:
+    if a == 10 or b == 10 or a + b == 10:
+        return True
+    else:
+        return False
+
+
+a = int(input("First value ="))  # input is a builtin function that reads from the console and returns an str
+b = int(input("second value ="))  # int()  is a builtin function that converts its parameter to the int type
+print(is_ten(a, b))
+
+# print(a + b)  # if a and b are str, then + is concatenation
 
 """
 2. Write a Python program which iterates the integers from 1 to 50. 
