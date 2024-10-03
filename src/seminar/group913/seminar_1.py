@@ -46,9 +46,9 @@ def is_ten(a: int, b: int) -> bool:
         return False
 
 
-a = int(input("First value ="))  # input is a builtin function that reads from the console and returns an str
-b = int(input("second value ="))  # int()  is a builtin function that converts its parameter to the int type
-print(is_ten(a, b))
+# a = int(input("First value ="))  # input is a builtin function that reads from the console and returns an str
+# b = int(input("second value ="))  # int()  is a builtin function that converts its parameter to the int type
+# print(is_ten(a, b))
 
 # print(a + b)  # if a and b are str, then + is concatenation
 
@@ -57,6 +57,26 @@ print(is_ten(a, b))
 For multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". 
 For numbers which are multiples of both three and five print "FizzBuzz".
 """
+
+
+def fizz_buzz(left: int, right: int) -> list:
+    result = []  # [] is an empty list
+
+    for i in range(left, right + 1):
+        if i % 3 == 0 and i % 5 == 0:
+            result.append("FizzBuzz")
+            # print("FizzBuzz")
+        elif i % 3 == 0:
+            result.append("Fizz")
+        elif i % 5 == 0:
+            result.append("Buzz")
+        else:
+            result.append(i)
+    return result
+
+
+values = fizz_buzz(1, 50)
+print(values)
 
 """
 3. Calculate the first n terms of the Fibonacci sequence
