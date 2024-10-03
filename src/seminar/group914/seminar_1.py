@@ -2,6 +2,8 @@
 FP seminar 1 problems & solutions
 """
 
+print("Hello word")
+
 """
 Problem statements to choose from:
     https://www.codecademy.com/resources/blog/python-code-challenges-for-beginners/
