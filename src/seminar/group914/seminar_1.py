@@ -32,6 +32,7 @@ Question – What happens if we enter a non-integer number, or alphanumeric char
     
     strongly typed language = at every moment, every variable has a well known type 
 """
+
 # Python is a dynamically typed language
 # a = "abcd"
 # a = 2345
@@ -39,13 +40,23 @@ Question – What happens if we enter a non-integer number, or alphanumeric char
 # a = input("First value =")  # input returns a string (Python's str type)
 # b = input("Second value =")
 
-a = int(input("First value ="))  # int() is a Python builtin function to convert an str to an int
-b = int(input("Second value ="))
+"""
+The function below uses Python type hints
+    a : int (means that the type of parameter a should be int)
+    -> bool (means that the functions should return a value of type bool)
+"""
 
-if a == 10 or b == 10 or a + b == 10:
-    print("True")
-else:
-    print("False")
+
+def is_sum_10(a: int, b: int) -> bool:
+    if a == 10 or b == 10 or a + b == 10:
+        return True
+    else:
+        return False
+
+
+# a = int(input("First value ="))  # int() is a Python builtin function to convert an str to an int
+# b = int(input("Second value ="))
+# is_sum_10(a, b)
 
 # print(a + b)  # if a and b are str, + is concatenation
 # if a and b are numbers, + is addition
@@ -55,6 +66,35 @@ else:
 For multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". 
 For numbers which are multiples of both three and five print "FizzBuzz".
 """
+
+# V1 - without functions
+for i in range(1, 51):
+    if i % 3 == 0 and i % 5 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)
+
+
+# V2 - turn this into a function
+def fizz_buzz(left: int, right: int) -> list:
+    result = []  # empty list in Python
+    for i in range(left, right + 1):
+        if i % 3 == 0 and i % 5 == 0:
+            result.append("FizzBuzz")
+        elif i % 3 == 0:
+            result.append("Fizz")
+        elif i % 5 == 0:
+            result.append("Buzz")
+        else:
+            result.append(i)
+    return result
+
+
+print(fizz_buzz(1, 10))
 
 """
 3. Calculate the first n terms of the Fibonacci sequence
