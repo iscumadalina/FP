@@ -48,6 +48,7 @@ def generateNRandomCities(n, listOfCities):
 
 def sortCities(listOfCities):
     """
+    Function that sorts the list of cities in ascending order by population
     :param listOfCities: list of values to be sorted by population
     :return: none
     """
@@ -104,7 +105,7 @@ import copy
 
 listOfNames = ["Cluj-Napoca", "Oradea", "Sibiu", "Alba Iulia", "Zalau", "Suceava", "Valencia", "Constanta", "Iasi",
              "Timisoara", "Bistrita"]
-newList = copy.copy(listOfNames)
+newList = listOfNames.copy()
 deepCopyList = copy.deepcopy(listOfNames)
 
 deepCopyList[2] = "Botosani"
@@ -121,6 +122,10 @@ print(id(deepCopyList))
 print(type(listOfNames))
 print(type(newList))
 print(type(deepCopyList))
+
+print(id(listOfNames[0]))
+print(id(newList[0]))
+print(id(deepCopyList[0]))
 
 #main()
 
