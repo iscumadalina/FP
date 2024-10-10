@@ -37,17 +37,17 @@ for i in range(1,51):
 def fizz_buzz(left: int, right: int) -> list:
     result = [] # empty list
     for i in range(left, right + 1):
-    if i % 3 == 0 and i % 5 == 0:
-        result.append("FizzBuzz")
-    elif i % 3 == 0:
-        result.append("Fizz")
-    elif i % 5 == 0:
-        result.append("Buzz")
-    else:
-        result.append(i)
-return result
+        if i % 3 == 0 and i % 5 == 0:
+            result.append("FizzBuzz")
+        elif i % 3 == 0:
+            result.append("Fizz")
+        elif i % 5 == 0:
+            result.append("Buzz")
+        else:
+            result.append(i)
+    return result
 
-print(fizz_buzz(1, 10))
+print(fizz_buzz(0, 16))
 
 """
 
@@ -87,19 +87,19 @@ elif bmi >= 18.5 and bmi <= 24.9:
 elif bmi >= 25 and bmi <= 39.9:
     print("Overweight")
 else:
-    print("Obsese")
+    print("Obse")
 
 """
 
 """
-4. Given a non-empty string like "Code" return a string like "CCoCodCode"
+5. Given a non-empty string like "Code" return a string like "CCoCodCode"
     string_splosion('Code') → 'CCoCodCode'
     string_splosion('abc') → 'aababc'
     string_splosion('ab') → 'aab'
 """
 
 """
-5. Given 2 strings, a and b, return the number of the positions where they contain the same length 2
+6. Given 2 strings, a and b, return the number of the positions where they contain the same length 2
 substring. So "xxcaazz" and "xxbaaz" yields 3, since the "xx", "aa", and "az" substrings appear in the
 same place in both strings.
     stringMatch('xxcaazz', 'xxbaaz') → 3
@@ -108,14 +108,14 @@ same place in both strings.
 """
 
 """
-6. Write a Python program to remove all duplicate elements from a given array and returns a new array.
+7. Write a Python program to remove all duplicate elements from a given array and returns a new array.
 """
 
 """
-7. Return the sum of the numbers in a list, returning 0 for an empty list. Except the number 13 is very
+8. Return the sum of the numbers in a list, returning 0 for an empty list. Except the number 13 is very
 unlucky, so it does not count and numbers that come immediately after a 13 also do not count.
 """
 
 """
-8. Caesar Encryption
+9. Caesar Encryption
 """
