@@ -64,16 +64,30 @@ def to_str(city) -> str:
 # print(get_name(my_city), get_population(my_city))
 # print(to_str(my_city))
 
+def show_all_cities(city_list: list) -> None:
+    print("List of cities")
+    for city in city_list:
+        print(to_str(city))
+
+
 def start():
+    # NOTE We don't use global variables
+    cities_list = []  # empty list
+
+    # add a few cities
+    cities_list.append(create_city("Braila", 150_000, "Braila"))
+    cities_list.append(create_city("Roman", 40_000, "Neamt"))
+
     while True:
         print("1. Show all cities")
         print("0. Exit")
 
         command = input(">")
 
-        if command == 1:
-            pass
-        elif command == 0:
+        if command == "1":
+            # NOTE We write functions so that the main loop is not too complicated
+            show_all_cities(cities_list)
+        elif command == "0":
             # return
             # exit(0)
             break
