@@ -65,6 +65,25 @@ def to_str(city) -> str:
 # --- User interface functions
 # NOTE All print(), input() statements go here
 
+def add_city(city_list: list) -> None:
+    print("Addding a new city")
+    name = input("City name =")
+
+    while True:
+        try:
+            pop = int(input("City population ="))
+            break  # If we get to this point, it means there was no error. Try it!
+        except ValueError:
+            print("Population must be an integer")
+
+    country = input("Country =")
+    continent = input("Continent =")
+
+    # TODO What to do with duplicate cities?
+    new_city = create_city(name, pop, country, continent)
+    city_list.append(new_city)
+
+
 def display_all_cities(city_list: list) -> None:
     for city in city_list:
         print(to_str(city))
@@ -82,12 +101,17 @@ def start():
 
     while True:
         print("1. Display the list of cities")
+        print("2. Add a city")
         print("0. Quit")
 
         command = input(">").strip()
 
         if command == "1":
+            # We want to add a function for each requirement
+            # This makes the main loop easier to understand
             display_all_cities(cities_list)
+        elif command == "2":
+            add_city(cities_list)
         elif command == "0":
             break
         else:
