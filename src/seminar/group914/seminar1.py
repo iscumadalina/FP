@@ -34,8 +34,8 @@ for i in range(1,51):
         print(i)
 
 # V2 - using functions
-def fizz_buzz(left: int, right: int) -> list:
-    result = [] # empty list
+def fizz_buzz(left: int, right: int)  # list:
+    result = []  # empty list
     for i in range(left, right + 1):
         if i % 3 == 0 and i % 5 == 0:
             result.append("FizzBuzz")
@@ -87,7 +87,7 @@ elif bmi >= 18.5 and bmi <= 24.9:
 elif bmi >= 25 and bmi <= 39.9:
     print("Overweight")
 else:
-    print("Obse")
+    print("Obese")
 
 """
 
