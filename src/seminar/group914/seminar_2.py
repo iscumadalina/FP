@@ -34,7 +34,7 @@ def get_name(city) -> str:
     return city["name"]
 
 
-def get_population(city) -> str:
+def get_population(city) -> int:
     # for the list representation
     # return city[1]
     # for the dict representation
@@ -55,30 +55,47 @@ def get_continent(city) -> str:
     return city["continent"]
 
 
+def to_str(city) -> str:
+    return get_name(city) + " with a population of " + str(get_population(city)) + " is in " + get_country(
+        city) + ", " + get_continent(city)
+
+
 # --- Functions that implement program requirements
 
 # --- User interface functions
 # NOTE All print(), input() statements go here
 
-def display_all_cities():
-    pass
+def display_all_cities(city_list: list) -> None:
+    for city in city_list:
+        print(to_str(city))
 
 
 def start():
+    # NOTE We don't want to start with an empty list, so let's add something
+
+    # This is where we keep all the cities
+    # It's not a global variable
+    cities_list = []
+
+    cities_list.append(create_city("Tulcea", 65_000, "Romania", "Europe"))
+    cities_list.append(create_city("Ploiesti", 80_000, "Romania", "Europe"))
+
     while True:
         print("1. Display the list of cities")
         print("0. Quit")
-        command = input(">")
 
-        if command == 1:
-            display_all_cities()
-        elif command == 0:
+        command = input(">").strip()
+
+        if command == "1":
+            display_all_cities(cities_list)
+        elif command == "0":
             break
         else:
             print("Bad command or file name")
 
 
-# start()
+start()
 
-my_city = create_city("Tulcea", 65_000, "Romania", "Europe")
-print(get_name(my_city), get_population(my_city))
+# my_city = create_city("Tulcea", 65_000, "Romania", "Europe")
+# # print(get_name(my_city), get_population(my_city))
+# print(to_str(my_city))
