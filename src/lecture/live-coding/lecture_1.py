@@ -28,42 +28,46 @@ def is_prime(n: int) -> bool:
     return True
 
 
-# 45 -14 23 -5 Anna has apples 55 -50 23 -5 James 47 999
-line = input("Give the string =")
-# print(type(line))  # print the type of the line variable
+def process_list(data: list) -> list:
+    # set() creates a mathematical set with the elements of the list supplied as a parameter, which will eliminate duplicates
+    # list() creates a list with the elements of the set supplied as a parameter. Lists are sortable :)
+    # NOTE There is probably a better way to carry out this transformation
+    data = list(set(data))
+    data.sort()
+    return data
 
-# print(line)
-tokens = line.split(" ")
 
-primes_list = []  # empty list
-negatives_list = []
-other_numbers_list = []
-cap_names_list = []
+def start():
+    """
+    NOTE you can use the following input to test the program:
+    45 -14 23 -5 Anna has apples 55 -50 23 -5 James 47 999
+    """
+    tokens = input("Give the string =").split(" ")
 
-# negatives_list = "s"
+    primes_list = []  # empty list
+    negatives_list = []
+    other_numbers_list = []
+    cap_names_list = []
 
-for token in tokens:
-    try:
-        int_token = int(token)  # int() is a builtin function to convert to integer
-        # if there's an error on the previous line, the execution skips directly
-        # to the except clause below
-        if int_token < 0:
-            negatives_list.append(int_token)
-        elif is_prime(int_token):
-            primes_list.append(int_token)
-        else:
-            other_numbers_list.append(int_token)
-    except ValueError:
-        if is_capitalized(token):
-            cap_names_list.append(token)
+    for token in tokens:
+        try:
+            int_token = int(token)  # int() is a builtin function to convert to integer
+            # if there's an error on the previous line, the execution skips directly
+            # to the except clause below
+            if int_token < 0:
+                negatives_list.append(int_token)
+            elif is_prime(int_token):
+                primes_list.append(int_token)
+            else:
+                other_numbers_list.append(int_token)
+        except ValueError:
+            if is_capitalized(token):
+                cap_names_list.append(token)
 
-# TODO Do the same as below for the remaining lists
-primes_list = list(set(primes_list))
-primes_list.sort()
+    print("Prime numbers: ", process_list(primes_list))
+    print("Negative numbers: ", process_list(negatives_list))
+    print("Other numbers: ", process_list(other_numbers_list))
+    print("Capitalized names: ", process_list(cap_names_list))
 
-# negatives_list.sort()
-#
-print(primes_list)
-# print(negatives_list)  # converting the list into a set will eliminate the duplicates
-# print(other_numbers_list)
-# print(cap_names_list)
+
+start()
