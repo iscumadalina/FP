@@ -6,6 +6,29 @@
 """
 from random import random
 
+"""
+    Time complexity notation:
+        n - size of the algorithm's input (length of the list, number of elements of a matrix, an index)
+        T(n) - function that represents the number of operations carried out by the algorithm for input size n
+        # T(n) = 2 * n leads to linear time
+        
+        after we calculate/approximate T(n) we can talk about the time complexity
+        Going from T(n) to time complexity:
+            1. Only consider the dominating term (when n grows large)
+            2. Throw out any constants
+        Algorithm complexity:
+            BigO => O(n) -> high bound on algorithm complexity (algorithm cannot be slower than this)
+            BigOmega => Omega(n) -> low bound on algorithm complexity (algorithm cannot be faster than this)
+            Theta => Theta(n) -> the exact complexity (both low and high bound), not sure this exists!?
+    Extra-space complexity
+        - how much additional memory space the algorithm requires to do its job
+        - we do not consider the input
+        
+    Notes:
+        -> Every operation that does not depend on "n" takes 1 unit of time
+        -> Function allocates a quantity of memory that does not depend on "n" -> 1 unit of space :) 
+"""
+
 
 def f_1(n: int):
     for i in range(10):
