@@ -3,6 +3,23 @@
     sources:
         https://complex-systems-ai.com/en/algorithmic/corrected-exercises-time-complexity/
         https://www.geeksforgeeks.org/practice-questions-time-complexity-analysis/
+
+    Algorithm complexity (time)
+        n - size of the algorithm's input (in many cases its the length of a list, rows of a matrix, some index)
+        T(n) - function which provides the number of operations the algorithm makes for input size n
+
+        once we have the expression for T(n) we can provide the algorithm complexity as follows:
+            T(n) = 2 * n^2 + n - 1
+            1. Only consider the dominating term (the term at the highest power)
+            2. Remove the constants
+        Then we have the complexity:
+            Theta(n) - both high and low bound (it does not necessarily exist)
+            O(n)     - high bound (the algorithm cannot surpass this complexity)
+            Omega(n) - low bound (the algorithm cannot fall below this complexity)
+
+    Obs:
+        - Every operation that does not depend on "n" is assumed to take 1 unit of time
+        - Constant time is not necessarily short (wait for the weekend is constant time)
 """
 from random import random
 
