@@ -52,7 +52,7 @@ def merge_sort(data: list) -> list:
     # base case of the recursion, T(n) = 1
     if len(data) == 1:
         return data
-    elif len(data) < 16: # how do we pick the threshold?
+    elif len(data) < 16:  # how do we pick the threshold?
         return binary_insertion_sort(data)
 
     m = len(data) // 2  # // is integer division
@@ -84,7 +84,7 @@ def test_sort():
         assert sorted_py == sorted_merge
 
 
-test_sort()
+# test_sort()
 
 """
     2. Find the smallest number in a list using a recursive divide & conquer implementation. Return None for an empty 
@@ -96,6 +96,57 @@ test_sort()
 """
     3. Calculate the r-th root of a given number x with a given precision p
 """
+
+
+# ex: calculate the 12-th root of 3 with precision 0.0001
+# x = 3
+# r = 12
+# p = 0.0001
+
+def calc_root(x: float, r: int, p: float):
+    """
+    Approximate the r-th root of value x with precision p
+    :param x: The number we extract the root from
+    :param r: The order of the roor
+    :param p: The precision required
+    :return: A value v, so that x - p < v^r < x + p
+    """
+    pass
+
+
+calls = 0
+
+
+def rth_root_impl(x: float, root: int, p: float, left, right) -> float:  # iordachioaiei alex
+    global calls  # refer to the global variable calls
+    calls += 1
+
+    mid = (left + right) / 2
+    power = mid ** root
+
+    if x - p <= power <= x + p:
+        return mid
+
+    if x >= 1:
+        if mid ** root < x + p:
+            return rth_root_impl(x, root, p, mid, right)
+        else:
+            return rth_root_impl(x, root, p, left, mid)
+    elif x < 1:
+        if mid ** root < x + p:
+            return rth_root_impl(x, root, p, left, mid)
+        else:
+            return rth_root_impl(x, root, p, mid, right)
+
+
+def rth_root(x: float, root: int, p: float) -> float:
+    return rth_root_impl(x, root, p, 1, x)
+
+
+# v = rth_root(3, 10, 0.1)
+v = rth_root(0.5, 20, 0.0000000001)
+print(v, v ** 20)
+print(calls)
 
 """
     4. Calculate the maximum subarray sum (elements of a subarray have consecutive indices in the parent array)
