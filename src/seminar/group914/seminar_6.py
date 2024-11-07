@@ -32,6 +32,7 @@ The application will have a menu-driven user interface and will provide the foll
         - Try to reuse functions across functionalities (Less code to write and test)
         - Don't use global variables!
 """
+from random import choice, randint
 
 """
     Student representation functions are below 
@@ -50,7 +51,8 @@ def create_student(student_id: int, student_name: str, student_grade: int):
         raise ValueError("Student name must have at least 3 characters - " + student_name)
     if 1 > student_grade or 10 < student_grade:
         raise ValueError("Student grade must be between 1 and 10, but was given as " + str(student_grade))
-    return {"id": student_id, "name": student_name, "grade": student_grade}
+    # return {"id": student_id, "name": student_name, "grade": student_grade}
+    return [student_id, student_name, student_grade]
 
 
 def get_id(student) -> int:
@@ -59,15 +61,28 @@ def get_id(student) -> int:
     :param student: The student entity
     :return: The id
     """
-    return student["id"]
+    # return student["id"]
+    return student[0]
 
 
 def get_name(student) -> str:
-    return student["name"]
+    # return student["name"]
+    return student[1]
 
 
 def get_grade(student) -> int:
-    return student["grade"]
+    # return student["grade"]
+    return student[2]
+
+
+"""
+    to_str() does not print out anything, so it's not a UI function
+"""
+
+
+def to_str(student) -> str:
+    return "Student id=" + str(get_id(student)) + " name " + get_name(student) + " with grade=" + str(
+        get_grade(student))
 
 
 """
@@ -127,6 +142,88 @@ test_student()
     Program functionalities (non-UI) are below
 """
 
+
+def generate_random_students(n: int) -> list:
+    family_names = ["Albu", "Pop", "Popescu", "Lup", "Lupea", "Bodnar"]
+    given_name = ["Marian", "Ana", "Ioana", "Liviu", "Radu", "Raul", "Florin"]
+
+    student_list = []
+    while n > 0:
+        student_id = 100 + n
+        name = choice(family_names) + " " + choice(given_name)
+        grade = randint(1, 10)
+        student_list.append(create_student(student_id, name, grade))
+        n -= 1
+
+    return student_list
+
+
+def delete_student(students: list, student_id: int) -> None:
+    for s in students:
+        if get_id(s) == student_id:
+            """
+            students is an object and is sent be reference
+            """
+            students.remove(s)
+            return
+    raise ValueError("Student with id " + str(student_id) + " was not found")
+
+
 """
     UI code is below
 """
+
+
+def display_all_students(students: list) -> None:
+    for s in students:
+        print(to_str(s))
+
+
+def delete_student_ui(students: list) -> None:
+    try:
+        student_id = int(input("id of student to delete="))
+    except ValueError as ve:
+        # option 1
+        # print("Student id should be a base 10 integer")
+        # return
+        # option 2
+        raise ValueError("Student id should be a base 10 integer")
+
+    delete_student(students, student_id)
+
+
+def print_menu():
+    print("1. Display all students")
+    print("2. Delete a student")
+    print("0. Exit")
+
+
+def start():
+    # We use this variable to keep the list of the program's students
+    # Generate some data so the program does not start empty
+    students = generate_random_students(10)
+
+    while True:
+        try:
+            print_menu()
+            option = input(">")
+
+            if option == "1":
+                """
+                We don't want to have too much code here so we just call functions
+                """
+                display_all_students(students)
+            elif option == "2":
+                delete_student_ui(students)
+            elif option == "0":
+                return
+            else:
+                """
+                else catches everything that was not in a previous if/elif branch
+                """
+                print("Bad command")
+        except ValueError as ve:
+            print(ve)
+
+
+start()
