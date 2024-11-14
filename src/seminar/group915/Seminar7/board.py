@@ -10,14 +10,14 @@ y = 1
 0 0 0
 0 0 0
 0 0 0
-"""
+
 from texttable import Texttable
 
 def createBoard():
-    """
+    
     Creates an empty board
     :return: The new board
-    """
+    
     return [0] * 9
 
 def getBoard(board, x : int, y : int) -> int:
@@ -26,14 +26,14 @@ def getBoard(board, x : int, y : int) -> int:
     return board[3 * x + y]
 
 def moveBoard(board, x: int, y: int, symbol: str):
-    """
+    
     Move item on board
     :param board: the board
     :param x: the row on which we want to place the current element
     :param y: the column on which we want to place the current element
     :param symbol: The current element, either 'X' or 'O'
     :return: None
-    """
+    
     if symbol.upper() not in ['X', 'O']:
         raise ValueError("Invalid symbol")
     if x not in (0, 1, 2) or y not in (0, 1, 2):
@@ -47,11 +47,11 @@ def moveBoard(board, x: int, y: int, symbol: str):
 
 
 def toString(board) -> str:
-    """
+    
     Represent the board as a 3x3 grid using Texttable
     :param board: The board
     :return: The string representation of the board
-    """
+    
 
     table = Texttable()
     table.set_cols_align(["c", "c", "c"])
@@ -84,14 +84,14 @@ def isBoardWon(board) -> bool:
     for i in range(0, 3):
         if abs(sum(board[i::3])) == 3:
             return True
-    """
+    
     for y in range (0, 3):
         s = 0
         for x in range (0, 3):
             s += getBoard(board, y, x)
         if abs(s) == 3:
             return True
-    """
+    
 
     if abs(board[0] + board[4] + board[8]) == 3:
         return True
@@ -115,3 +115,4 @@ def isBoardDraw(board):
 if __name__=="__main__":
     board = createBoard()
     print(toString(board))
+"""
