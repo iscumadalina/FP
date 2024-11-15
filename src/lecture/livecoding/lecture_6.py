@@ -18,11 +18,6 @@ from math import gcd
 def create_rational(num: int, denom: int = 1):
     """
     Create a rational number
-
-    >>> create_rational(1,2)
-
-    ``Google www.google.com ``
-
     :param num: numerator
     :param denom: non-zero denominator
     :return: the created number
