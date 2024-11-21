@@ -1,4 +1,4 @@
-from texttable import Texttable
+from texttable import texttable
 from pdoc import pdoc
 
 
@@ -98,8 +98,8 @@ def to_str(board: list) -> str:
                 current_row[col] = 'X'
             else:
                 current_row[col] = ' '
-        t.add_row(current_row)
-    return t.draw()
+    #    t.add_row(current_row)
+    # return t.draw()
 
 
 if __name__ == '__main__':
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     To generate HTML documentation for this module
     """
     f = open("doc.html", "wt")
-    f.write(pdoc("board.py", ""))
+    # f.write(pdoc("board.py", ""))
     f.close()
 
     # board = create_board()
